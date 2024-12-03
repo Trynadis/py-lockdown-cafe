@@ -13,7 +13,7 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError(
-                f"Visitor {visitor.get("name", "Unknown")} is not vaccinated."
+                f'Visitor {visitor.get("name", "Unknown")} is not vaccinated.'
             )
 
         vaccine_info = visitor["vaccine"]
@@ -22,24 +22,24 @@ class Cafe:
             expiration_date, datetime.date
         ):
             raise ValueError(
-                f"Invalid expiration_date for visitor {
+                f'Invalid expiration_date for visitor {
                     visitor.get(
-                        "name", "Unknown")}."
+                        "name", "Unknown")}.'
             )
 
         if expiration_date < datetime.date.today():
             raise OutdatedVaccineError(
-                f"Vaccine expired for visitor {
+                f'Vaccine expired for visitor {
                     visitor.get(
-                        "name", "Unknown")}."
+                        "name", "Unknown")}.'
             )
 
         if not visitor.get("wearing_a_mask", False):
             raise NotWearingMaskError(
-                f"Visitor {
+                f'Visitor {
                     visitor.get(
                         "name",
-                        "Unknown")} is not wearing a mask."
+                        "Unknown")} is not wearing a mask.'
             )
 
-        return f"Welcome to {self.name}"
+        return f'Welcome to {self.name}'
